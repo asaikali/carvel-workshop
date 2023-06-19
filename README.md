@@ -5,16 +5,16 @@ carvel to solve some tricky problems when working with yaml and Kubernetes.
 To follow along in the workshop you should be comfortable with containization 
 concepts and the basics of using Kubernetes. 
 
-# Lab Setup 
+## Lab Setup 
 
-## Container Registry
+### Container Registry
 
 You will need a container registry where you have permissions to create repos,
 and push/pull/delete container images. The labs will use GitHub packages as the 
 primary registry for the hands on exerices. Whatever regsitry you bring to the 
 workshop we assume you are comfortable using that registry.
 
-## Kubernetes Cluster 
+### Kubernetes Cluster 
 
 You will need a Kubernetes cluster for the hands on labs. Whatever choice of 
 Kuberentes distribution you bring to the workshop we assume you are comfortable 
@@ -25,14 +25,14 @@ tested with Docker Desktop Kuberentes. Other local desktop Kubernetes solutions
 such as minikube or kind will work but there might be slight differences in 
 exposing network ports.
 
-## Tools
+### Tools
 * [Docker](https://www.docker.com/products/docker-desktop) 
 * [dive](https://github.com/wagoodman/dive) tool for exploring container layers
 * [Carvel](https://carvel.dev/) cli tools installed on your machine
 * [k9s](https://github.com/derailed/k9s#installation) text gui for k8s
 * [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl)
 
-# Outline
+## Outline
 
 The workshop consists of 3 parts, each part is a serries of alternating 
 presentations and demos designed to optimize the carvel learning experience.
@@ -40,7 +40,7 @@ presentations and demos designed to optimize the carvel learning experience.
 * Tame reconcile loops and jump the air gap
 * Carvel vs. X 
 
-## Become a YAML slicing and dicing ninja with ytt
+### Become a YAML slicing and dicing ninja with ytt
 
 - **Why carvel:**  A quick overview of carvel to orient all the attendees, 
 this a rapid preview of the rest of main arguments for Carvel, that will be 
@@ -63,7 +63,7 @@ advanced real world yaml wrangling problems on how to solve them with ytt.
 - **Ninja level hands on:** get some some hands on experience with the 
 advanced ytt YAML wrangling techniques
 
-## Tame reconcile loops and jump the air gap
+### Tame reconcile loops and jump the air gap
 - **jumping the air gap with imgpkg & kbld:** many of our largest customers run 
 in air gapped environments on prem and on public cloud. This section dives into 
 the key technical problems encountered in air gapped environments through demos 
@@ -87,7 +87,7 @@ to challenges with dealing with kubernetes secrets and how secretgen controller
 solves those issues. 
 - **hands on with secret gen controller**
 
-## Carvel vs. X 
+### Carvel vs. X 
 - **Why carvel the big picture end-to-end:** this section is a summary of 
 what we have learned in day 1 and 2 all integrated into and end-to-end demo by 
 looking at how TAP uses carvel for installation. We will go on a tour of the 
