@@ -1,0 +1,23 @@
+#! This file contains mulitple yaml documets 
+#! 
+#! run the command 'ytt -f 5-document-set.yaml'
+#!
+#! Questions:
+#!   how many documents were ouputed
+#!
+#! ytt works in terms of yaml document sets so you can pass it 
+#! a number of files or directories it will parse all the yaml 
+#! identify all the documents in the yaml and print out the ouput.
+#!
+#! run the command 'ytt -f 5-document-set.yaml -f documents'
+#!
+#! #! Questions:
+#!   how many documents were ouputed
+#!
+#! HINT: https://carvel.dev/ytt/docs/v0.44.0/yaml-primer/
+
+---
+message: #@ "hello world".upper()
+
+--- 
+message: hello
