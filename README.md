@@ -9,20 +9,20 @@ concepts and the basics of using Kubernetes.
 
 ### Container Registry
 
-You will need a container registry where you have permissions to create repos,
+You will need a container registry where you have permissions to create repos, 
 and push/pull/delete container images. The labs will use GitHub packages as the 
-primary registry for the hands on exerices. Whatever regsitry you bring to the 
+primary registry for the hands-on exerices. Whatever registry you bring to the 
 workshop we assume you are comfortable using that registry.
 
 ### Kubernetes Cluster 
 
-You will need a Kubernetes cluster for the hands on labs. Whatever choice of 
-Kuberentes distribution you bring to the workshop we assume you are comfortable 
-driving that Kuberentes distribution. 
+You will need a Kubernetes cluster for the hands-on labs. Whatever choice of 
+Kuberentes distribution you bring to the workshop we assume you are comfortable
+driving that Kuberentes distribution.
 
-A local kuberentes is sufficient for the labs in this workshop. The labs are 
-tested with Docker Desktop Kuberentes. Other local desktop Kubernetes solutions 
-such as minikube or kind will work but there might be slight differences in 
+A local kubernetes is sufficient for the labs in this workshop. The labs are 
+tested with Docker Desktop Kubernetes. Other local desktop Kubernetes solutions 
+such as minikube or kind will work but there might be slight differences in
 exposing network ports.
 
 ### Tools
