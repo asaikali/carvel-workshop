@@ -1,0 +1,20 @@
+#
+# This is a plain document with no ytt annoations
+#
+# run the command 'ytt -f 3-pain.yaml'
+# 
+# Questions: 
+#    What did you think the output of this document should be?
+#    Did you get the output that you expected?
+#    Why is the output different than what you expected
+# 
+# run the command 'ytt -s -f 3-pain.yaml' the -s is for strict yaml parsing 
+#
+# Questions: 
+#   What output did you get?
+#   Why did you get output that you did?
+#
+# Hint: see ytt strict yaml parsing mode https://carvel.dev/ytt/docs/v0.44.0/strict/#docs
+#
+---
+message: yes

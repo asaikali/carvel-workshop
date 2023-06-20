@@ -1,0 +1,11 @@
+#
+# This is a plain document with no ytt annoations
+#
+# run the command 'ytt -s -f 4-pain-fixed.yaml'
+# 
+# Questions: 
+#    why did the parsing in strict mode work this time?
+# 
+#
+---
+message: "yes" #! quotes force yaml parser to treat yes as string not a boolean

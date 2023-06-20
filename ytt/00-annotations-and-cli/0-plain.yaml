@@ -1,0 +1,12 @@
+# Plain YAML document with NO ytt annotations 
+# 
+# run the command 'ytt -f 0-plain.yaml'
+#
+# Questions:
+#  did the comment appear in the output?
+# 
+# HINT: https://github.com/carvel-dev/ytt/issues/63 
+---
+message: HELLO WORLD
+answer: 42
+

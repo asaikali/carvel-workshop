@@ -1,0 +1,11 @@
+#! a ytt comment becasuse it adds ! to the # to fomm '#!'
+#
+# run the command 'ytt -f 2-broken.yaml'
+#
+# Questions: 
+#   Did the command fail or succed? 
+#   Why did the command fail or succed?
+#
+---
+message: #@ "hello world".upper()
+answer: #@ 40 + 2

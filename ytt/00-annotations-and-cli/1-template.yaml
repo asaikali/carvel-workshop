@@ -1,0 +1,16 @@
+#! Template YAML document with ytt annotations 
+#! 
+#! run the command 'ytt -f 1-template.yaml'
+#!
+#! Questions:
+#!  what is the output the command?
+#!  What does #@ mean?
+#!  What is a ytt annotation?
+#!  What programming language are ytt annotations written in?
+#!  Why do we need #! for comments?
+#!
+#! HINT: https://carvel.dev/ytt/docs/v0.44.0/yaml-primer/
+
+---
+message: #@ "hello world".upper()
+answer: #@ 40 + 2
