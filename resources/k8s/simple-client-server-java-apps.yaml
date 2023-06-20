@@ -1,0 +1,115 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: discovery-dns
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: billboard-client
+  namespace: discovery-dns
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: billboard-client
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: message-service
+  namespace: discovery-dns
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8081
+  selector:
+    app: message-service
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: billboard-client
+  namespace: discovery-dns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: billboard-client
+  template:
+    metadata:
+      labels:
+        app: billboard-client
+    spec:
+      containers:
+      - env:
+        - name: MESSAGE_SERVICE
+          value: http://message-service
+        image: dns-billboard-client:0.0.1-SNAPSHOT
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        name: billboard-client
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          limits:
+            memory: 768Mi
+          requests:
+            cpu: 500m
+            memory: 512Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: message-service
+  namespace: discovery-dns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: message-service
+  template:
+    metadata:
+      labels:
+        app: message-service
+    spec:
+      containers:
+      - image: dns-message-service:0.0.1-SNAPSHOT
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8081
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        name: message-service
+        ports:
+        - containerPort: 8081
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8081
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        resources:
+          limits:
+            memory: 768Mi
+          requests:
+            cpu: 500m
+            memory: 512Mi
