@@ -1,0 +1,2 @@
+---
+replicas: 4          #! ensures that any value for 'replicas' must be a int

@@ -1,0 +1,33 @@
+#! schema.yml
+
+#@data/values-schema
+---
+#@schema/title "LoadBalancer type service"
+#@schema/desc "Whether to include a LoadBalancer type service and if so, what its IP address is."
+load_balancer:
+  enabled: true
+  #@schema/nullable
+  static_ip: ""
+  
+#@schema/title "DNS domains"
+#@schema/desc "DNS domains to accept traffic for."
+#@schema/default ["apps.example.com", "mobile.example.com"]
+app_domains:
+  #@schema/examples ("Example app domain", "web.myapp.com"), ("","localhost:8080")
+  - ""
+
+#@schema/title "Database connections"
+#@schema/desc "Connection information for databases used by the system."
+#@schema/examples ("Example for local db", [{"name": "default", "adapter": "postgresql", "host": "localhost", "port": 8080}])
+databases:
+- name: ""
+  adapter: postgresql
+  host: ""
+  port: 5432
+
+#@schema/title "Additional configuration"
+#@schema/desc "Configuration for experimental/optional components; see documentation for more details."
+#@schema/examples ("Example of additional config", {"username": "default", "password": "password", "insecureFlag": True})
+#@schema/type any=True
+#@schema/deprecated "This data value will be removed in a future release"
+additional_config: {}

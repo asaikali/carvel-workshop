@@ -1,0 +1,1 @@
+ytt -f schema.yml --data-values-schema-inspect --output openapi-v3
