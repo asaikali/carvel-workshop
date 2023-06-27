@@ -1,0 +1,13 @@
+#@ load("rules.star", "one_registry_if_pvc_is_filesystem")
+
+#@data/values-schema
+#@schema/validation ("exactly one (1) registry replica if Helm Charts are stored on the filesystem.", one_registry_if_pvc_is_filesystem)
+---
+registry:
+  replicas: 2
+persistence:
+  imageChartStorage:
+    type: "filesystem"
+  persistentVolumeClaim:
+    registry:
+      accessMode: "ReadWriteOnce"
