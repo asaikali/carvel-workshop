@@ -1,0 +1,44 @@
+#! config.yml
+
+#@ name = "frontend"
+#@ namespace = "default"
+#@ version = "0.1.0"
+#@ replicas = 1
+
+#! Starlark function
+#@ def fmt(name, type):
+#@   return "{}-{}".format(name, type)
+#@ end
+
+#! YAML fragment function 
+#@ def labels(name, version):
+app.kubernetes.io/version: #@ version
+app.kubernetes.io/name: #@ name
+#@ end
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: #@ fmt(name, "deployment")
+  namespace: #@ namespace
+  labels: #@ labels(name, version)
+spec:
+  selector:
+    matchLabels:
+      app: #@ name
+  replicas: #@ replicas
+  template:
+    spec:
+      containers:
+        - name: #@ name
+          image: index.docker.io/k14s/image@sha256:6ab29951e0207fde6760f6db227f218f20e875f45b22e8ca0ee06c0c8cab32cd
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: #@ fmt(name, "service")
+  labels: #@ labels(name, version)
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80

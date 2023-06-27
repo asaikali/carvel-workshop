@@ -1,0 +1,6 @@
+#@data/values-schema
+---
+name: "frontend"
+namespace: "default"
+version: "0.1.0"
+replicas: 1

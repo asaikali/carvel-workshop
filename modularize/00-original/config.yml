@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: default
+  labels:
+    app.kubernetes.io/version: 0.1.0
+    app.kubernetes.io/name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: frontend
+          image: index.docker.io/k14s/image@sha256:6ab29951e0207fde6760f6db227f218f20e875f45b22e8ca0ee06c0c8cab32cd
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  labels:
+    app.kubernetes.io/version: 0.1.0
+    app.kubernetes.io/name: frontend
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80

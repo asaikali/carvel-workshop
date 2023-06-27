@@ -1,0 +1,11 @@
+#! config.yml
+#@ load("@ytt:data", "data")
+#@ load("@ytt:library", "library")
+#@ load("@ytt:template", "template")
+
+#@ resources_lib = library.get("resources")
+#@ backend = resources_lib.with_data_values(data.values.backend)
+#@ frontend = resources_lib.with_data_values(data.values.frontend)
+
+--- #@ template.replace(backend.eval())
+--- #@ template.replace(frontend.eval())
